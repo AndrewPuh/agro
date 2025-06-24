@@ -1,0 +1,34 @@
+:root {
+  --light: #f0d9b5;
+  --dark: #b58863;
+}
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+#board {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  width: 400px;
+  border: 2px solid #333;
+  margin-top: 10px;
+}
+.square {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  user-select: none;
+}
+.light {
+  background-color: var(--light);
+}
+.dark {
+  background-color: var(--dark);
+}
+.selected {
+  outline: 2px solid red;
+}
