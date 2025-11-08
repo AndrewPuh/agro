@@ -263,35 +263,883 @@ Develop an interactive Texas Hold'em poker training application designed for beg
 - Apply pot odds correctly 70%+ of the time
 - Graduate to intermediate difficulty bots within 20 sessions
 
-## Development Phases
+---
 
-### Phase 1 (MVP)
-- Core Texas Hold'em engine
-- Single-player vs. 5 AI opponents
+## Advanced Training Features
+
+### 1. Hand Reading Training Module
+Develop systematic opponent range analysis skills through interactive exercises.
+
+**Core Components**:
+- **Range Narrowing Practice**: Step-by-step exercises showing how to narrow opponent ranges street-by-street
+- **Live Range Display**: "Based on UTG open + flop c-bet, opponent likely holds: Top Pair (65%), Overpair (20%), Air/Bluff (15%)"
+- **Interactive Quizzes**:
+  - "Opponent min-raised button, then check-called flop. What does this pattern indicate?"
+  - "Player 3-bet from SB after MP raise. What's their likely range?"
+- **Pattern Recognition**: Highlight common betting patterns and their meanings
+  - Donk bet usually indicates weak made hand or draw
+  - Check-raise on dry boards typically represents strength
+  - Small bet sizing often indicates polarization
+
+**Training Scenarios**:
+```
+SCENARIO: Opponent raises UTG, you call from BB with 8♠7♠
+FLOP: A♠K♦3♠ - Opponent bets 2/3 pot
+QUESTION: What hands does this represent?
+
+ANSWER BREAKDOWN:
+✓ Premium pairs: AA, KK (very likely)
+✓ Top pair: AK, AQ, AJ (most common)
+✓ Overpairs: QQ, JJ (continuation bet)
+✗ Bluffs: (rare from UTG on this board)
+
+YOUR ACTION: You have flush draw (9 outs). Pot odds: 2.5:1
+Equity needed: 29% | Your equity vs. range: ~35%
+RECOMMENDATION: Call profitably, fold equity as backup
+```
+
+### 2. Bankroll Management System
+Teach responsible poker finance through integrated bankroll tracking.
+
+**Features**:
+- **Bankroll Tracker**: Real-time balance across sessions
+- **Risk Management Rules**:
+  - "Never risk more than 5% of total bankroll in single session"
+  - "Maintain minimum 20 buy-ins for your current stake level"
+  - "Move down stakes if bankroll drops below 15 buy-ins"
+- **Stake Level Recommendations**:
+  - $200 bankroll → Play $0.10/$0.25 maximum
+  - $500 bankroll → $0.25/$0.50 recommended
+  - $2000 bankroll → $1/$2 stakes accessible
+- **Visual Graphs**:
+  - Bankroll growth/decline over time
+  - Session win/loss chart
+  - Buy-in depth indicator (green/yellow/red zones)
+- **Alerts & Warnings**:
+  - "⚠️ You've lost 3 buy-ins this session - consider stopping"
+  - "✓ Bankroll reached new milestone: $1000! Consider moving up stakes"
+  - "🔴 Playing above recommended stakes for your bankroll"
+
+**Stop-Loss Protection**:
+- Configurable session stop-loss (e.g., -3 buy-ins)
+- Mandatory break suggestions after losses
+- Psychological coaching: "Variance is normal - review hands, not results"
+
+### 3. Mental Game & Tilt Detection
+AI-powered emotional state monitoring to maintain optimal decision-making.
+
+**Tilt Recognition Algorithms**:
+- **Behavioral Pattern Analysis**:
+  - VPIP increase >15% after losing hand
+  - Aggression spike (3-betting 40%+ suddenly)
+  - Chasing losses with marginal hands
+  - Revenge-calling all-ins without proper odds
+- **Real-Time Interventions**:
+  - "🧠 TILT ALERT: You've lost 3 hands in a row and your play has become 30% looser"
+  - "Your fold to 3-bet dropped from 70% to 20% - take a break?"
+  - "Last 5 decisions were emotionally driven - pause recommended"
+
+**Mental Reset Tools**:
+- **Breathing Exercises**: Guided 60-second mindfulness breaks
+- **Perspective Reminders**:
+  - "Even AA loses 18% of the time - variance is part of poker"
+  - "Focus on decisions, not results"
+  - "One session doesn't define your skill"
+- **Session Limits**: Enforced time limits (e.g., 90-minute max for beginners)
+- **Emotional State Logging**: Track mood before/after sessions to identify patterns
+
+**Statistics**:
+- Tilt frequency tracking
+- Decision quality comparison (calm vs. tilted states)
+- Emotional discipline score (0-100)
+
+### 4. Comprehensive Session Analytics Dashboard
+Professional-grade statistics platform for detailed performance analysis.
+
+**Core Metrics**:
+- **Positional Stats**:
+  - VPIP/PFR breakdown by position (UTG: 12/10, BTN: 35/28, etc.)
+  - 3-bet/4-bet frequencies per position
+  - Fold to steal % from blinds
+- **Win Rate Analysis**:
+  - **bb/100 hands**: Industry-standard win rate metric
+  - **Showdown winnings** (blue line): Profit when reaching showdown
+  - **Non-showdown winnings** (red line): Profit from folds (bluff effectiveness)
+  - Combined graph visualization
+- **Advanced HUD Stats**:
+  - **AF** (Aggression Factor): Ratio of bets+raises to calls
+  - **WTSD** (Went To Showdown): % of hands that see showdown
+  - **W$SD** (Won $ at Showdown): Win rate when reaching showdown
+  - **Cbet** stats: Flop/turn/river continuation bet %
+
+**Leak Detection System**:
+- AI-powered analysis identifies common mistakes:
+  - "You're folding 85% to 3-bets from BB - too exploitable"
+  - "Your flop c-bet% is 85% - opponents can exploit with check-raises"
+  - "You're calling too many river bets without proper odds"
+  - "Your blind defense is too tight - losing 15bb/100 from blinds"
+
+**Visual Representations**:
+- Line graphs: Win rate trends over sessions
+- Heat maps: Positional profitability (green=profitable, red=losing)
+- Pie charts: Hand type distribution at showdown
+- Range charts: Your actual vs. optimal opening ranges
+
+**Comparison Tools**:
+- Compare your stats vs. winning players benchmarks
+- Track improvement over time (30/60/90 day comparison)
+- Goal setting: "Target: Reduce fold to 3-bet from 80% to 65%"
+
+### 5. Equity Calculation Trainer
+Rapid equity estimation through timed quizzes and drills.
+
+**Quiz Modes**:
+
+**Mode 1: Exact Equity Calculation**
+```
+QUESTION: What's the equity?
+Your Hand: A♠K♠
+Opponent: Q♦Q♣
+Board: K♥9♠4♣
+
+Time Limit: 15 seconds
+Your Answer: _____%
+
+CORRECT ANSWER: 68.5%
+EXPLANATION: You have top pair, top kicker. Opponent needs to hit
+2-outer (2 remaining Queens) or runner-runner for straight.
+Equity breakdown: You win 68.5%, Opponent wins 31.5%
+```
+
+**Mode 2: Common Matchup Recognition**
+- Overpair vs. Set: ~8% (2-outer)
+- Flush draw vs. Top pair: ~36% (9 outs, 2 cards to come)
+- OESD vs. Overpair: ~32% (8 outs, 2 cards to come)
+- Set vs. Flush draw: ~55/45%
+- Pocket pair vs. Overcards (pre-flop): ~55/45% (classic flip)
+
+**Mode 3: Out Counting Drill**
+- "You have J♠10♠ on Q♠9♣2♦. How many outs for straight? ___"
+- "You flopped A♥7♥ on K♥6♥2♠. Flush draw outs? ___"
+- "Count your outs: 8♦7♦ on 9♠6♣2♥ (OESD + backdoor flush)"
+
+**Scoring System**:
+- Points for accuracy (within 5% equity)
+- Bonus points for speed (<10 seconds)
+- Leaderboard for fastest accurate calculators
+- Unlock harder scenarios as you improve
+
+### 6. Multi-Table Training (MTT Preparation)
+Simulate real online poker multi-tabling environment.
+
+**Progressive Difficulty**:
+- Level 1: 2 tables simultaneously
+- Level 2: 3 tables with increased decision time pressure
+- Level 3: 4 tables (professional standard)
+- Level 4: 6+ tables (grinder mode)
+
+**Features**:
+- **Time Bank Management**:
+  - Limited total time bank per table (60 seconds reserve)
+  - Auto-fold warning when time expires
+  - Practice allocating time to complex decisions
+- **Table Priority System**:
+  - Highlight tables requiring immediate action
+  - Queue actions when multiple tables act simultaneously
+  - Hotkey table switching (1-4 keys)
+- **Quick Decision Training**:
+  - Reduce average decision time while maintaining quality
+  - Track "time wasted" on routine folds
+  - Encourage pre-action buttons for obvious situations
+- **Performance Metrics**:
+  - Decision quality across multiple tables
+  - Mistakes per table (does quality drop at 3+ tables?)
+  - Hands per hour (volume metric)
+  - Optimal table count recommendation
+
+**Realistic Simulation**:
+- Synchronized time banks (tables don't pause for you)
+- Overlapping action windows
+- Tournament vs. Cash game multi-tabling differences
+
+### 7. Tournament Mode & ICM Training
+Complete tournament poker education from early stages to bubble play.
+
+**Tournament Formats**:
+- **Sit & Go (SNG)**:
+  - 6-max Turbo: Fast blind levels
+  - 9-max Standard: Classic structure
+  - Double or Nothing: Top 50% get 2x buy-in
+  - Winner-Take-All: High variance practice
+- **Multi-Table Tournaments (MTT)**:
+  - 45-player simulated tournaments
+  - Deep stack vs. turbo structures
+  - Rebuy/add-on variations
+
+**ICM (Independent Chip Model) Education**:
+ICM converts tournament chips to real money equity based on payout structure.
+
+**ICM Scenarios**:
+```
+BUBBLE SITUATION:
+Players: 4 remaining, Top 3 pay
+Payouts: 1st: $500, 2nd: $300, 3rd: $200, 4th: $0
+Your Stack: 5000 chips (25% of total)
+
+QUESTION: Should you call all-in with AJ?
+CHIP VALUE: 5000 chips
+ICM VALUE: ~$280 (average finish value)
+
+If you fold: Guarantee $280 average
+If you call and win (65%): ~$400 average
+If you call and lose (35%): $0
+
+ICM RECOMMENDATION: Fold - risk exceeds reward on bubble
+```
+
+**Tournament-Specific Training**:
+- **Bubble Play Coaching**:
+  - "You're chip leader on bubble - apply maximum pressure"
+  - "Short stack with 8bb - push/fold mode activated"
+  - "Medium stack - survival mode, avoid confrontation with big stacks"
+- **Push/Fold Charts**:
+  - Automatic display for <15bb stacks
+  - Color-coded shoving ranges by position
+  - Nash equilibrium strategy for heads-up
+- **Final Table Dynamics**:
+  - Pay jump considerations
+  - Stack leveraging strategies
+  - Deal-making concepts (chip chop vs. ICM chop)
+
+### 8. Player Note-Taking System
+Professional-grade opponent tracking and tagging.
+
+**Note Interface**:
+- **Quick Tag Buttons**:
+  - "Calling Station", "LAG", "TAG", "Nit", "Maniac", "Fish"
+  - "Bluffs Often", "Folds to Pressure", "Tilts Easily"
+  - Custom tags creation
+- **Detailed Notes Field**:
+  - Free-form text per player
+  - Hand history references
+  - Tendency descriptions
+
+**AI-Assisted Notes**:
+Based on observed play, system suggests:
+- "Player X has 3-bet 6 times from CO - tag as 'Aggressive from Late Position'"
+- "Player Y folded to 4 c-bets in row - possibly 'Fit or Fold'"
+- "Player Z check-raised 3/4 flops - tag as 'Check-Raise Heavy'"
+
+**Organization**:
+- Color-coding: Green (exploitable fish), Yellow (solid reg), Red (tough opponent)
+- Search/filter notes by tag
+- Export notes for external database
+
+**Privacy & Ethics**:
+- Notes are local only (not shared with opponents)
+- Encourage respectful descriptions
+- Focus on strategic tendencies, not personal attacks
+
+### 9. Professional Hand History Review Theater
+Learn from the masters through annotated hand replays.
+
+**Featured Content**:
+- **Legendary Hands**:
+  - Phil Ivey's soul read vs. Paul Jackson (2005 WSOP)
+  - Chris Moneymaker's bluff vs. Sam Farha (2003 WSOP Main Event)
+  - Tom Dwan's high-stakes cash game battles
+  - Daniel Negreanu's tournament masterclasses
+
+**Interactive Analysis**:
+```
+HAND BREAKDOWN: Phil Ivey vs. Amateur (High Stakes Poker)
+
+PRE-FLOP:
+Ivey (BTN): K♠10♠ - Raises to 3bb
+Opponent (BB): A♣Q♦ - Calls
+
+FLOP: J♠9♠2♥
+Opponent checks, Ivey bets 4bb (c-bet with gutshot + flush draw)
+Opponent calls
+
+📊 EQUITY: Ivey 45% | Opponent 55%
+
+TURN: 7♣ (brick)
+Opponent checks, Ivey bets 10bb (semi-bluff, 12 outs)
+Opponent calls
+
+🎓 TEACHING POINT: Ivey applies maximum pressure with equity.
+Even when behind, his aggressive betting gives two ways to win:
+1) Hit draw (12 outs = ~43% river equity)
+2) Opponent folds (fold equity)
+
+RIVER: 3♦ (brick, Ivey has K-high)
+Opponent checks, Ivey bets 25bb (PURE BLUFF)
+
+🤔 PAUSE: Would you bluff here?
+- Pot: 38bb
+- Bet: 25bb (66% pot)
+- Opponent needs to call 25bb to win 63bb (2.5:1 odds)
+- Must be good 28% of time to call
+
+RESULT: Opponent folds A♣Q♦ (top pair!)
+
+💡 WHY IT WORKED:
+- Ivey represented flush draw that hit
+- Consistent aggression told credible story
+- Opponent had bluff-catchers, not the nuts
+- Large bet made call uncomfortable even with pair
+```
+
+**Learning Modes**:
+- **Pause & Predict**: Guess pro's next action before revealing
+- **Alternative Lines**: "What if Phil had checked here instead?"
+- **GTO Comparison**: How does pro play compare to solver?
+- **Exploitative Adjustments**: What did pro identify about opponent?
+
+**Content Library**:
+- 50+ annotated professional hands
+- Filter by: Player, game type, concept (bluffing, value betting, ICM, etc.)
+- Community submissions (user-uploaded interesting hands)
+
+### 10. Variance Simulator & Mental Resilience
+Prepare players psychologically for poker's natural variance.
+
+**Simulation Engine**:
+- Input your win rate (e.g., 5bb/100 hands)
+- Run 10,000-hand simulation
+- Display realistic outcome distributions
+
+**Eye-Opening Visualizations**:
+```
+YOUR STATS: 5bb/100 win rate (good winning player)
+
+After 1,000 hands:
+- Best case: +150bb profit
+- Expected: +50bb profit
+- Worst case: -80bb loss (still possible!)
+
+After 10,000 hands:
+- 95% confidence interval: +200bb to +800bb
+- You could still be breakeven after 5,000 hands despite being a winner!
+
+LONGEST EXPECTED DOWNSWING: 3,000 hands
+This means you might play 3,000 hands without profit even with solid strategy.
+```
+
+**Psychological Training**:
+- **Downswing Challenge Mode**:
+  - Experience 500-hand losing streak (with good decisions)
+  - Practice emotional discipline during adversity
+  - Reinforce "process over results" mindset
+- **Bad Beat Library**:
+  - Show famous bad beats (Aces cracked, one-outers)
+  - Normalize brutal losses as part of the game
+  - "Even pros face AA < 72o sometimes"
+
+**Resilience Metrics**:
+- Track how decision quality changes during downswings
+- "Your play quality dropped 15% after -5 buy-in session"
+- Build mental calluses through exposure
+
+### 11. Stack Depth Strategy Training
+Master different strategic approaches based on effective stack sizes.
+
+**Stack Categories & Adjustments**:
+
+**1. Short Stack (10-40bb)**:
+- **Push/Fold Strategy**:
+  - <15bb: Nash equilibrium shoving charts
+  - Steal/resteal dynamics
+  - All-in or fold decision trees
+- **Simplified Post-Flop**:
+  - Commitment threshold (1/3 stack in pot = committed)
+  - Pot-sized bets standard
+  - Avoid small ball poker
+- **Example Coaching**:
+  - "12bb stack: Any raise commits you - shove or fold"
+  - "You opened, flop came - pot is 40% of stack, you're committed to call"
+
+**2. Medium Stack (40-100bb)**:
+- **Standard Cash Game Play**:
+  - Full range of bet sizes (1/3, 1/2, 2/3, pot)
+  - Balanced c-betting
+  - 3-bet bluffing viable
+- **Implied Odds Awareness**:
+  - Set mining with pocket pairs (need 15:1 implied)
+  - Suited connectors playability
+- **Example Coaching**:
+  - "60bb effective: You can call with 44 to flop set"
+  - "Standard 3-bet sizing: 3x original raise"
+
+**3. Deep Stack (100bb+)**:
+- **Implied Odds Paradise**:
+  - Speculative hands gain value (suited connectors, small pairs)
+  - Draws become more valuable (can win huge pots)
+  - Thin value betting increases
+- **Complex Lines Available**:
+  - Check-raise bluffing
+  - Multi-street bluffs
+  - Floating and delayed c-betting
+- **Pot Control**:
+  - Not every hand needs to build massive pot
+  - Pot geometry becomes critical
+- **Example Coaching**:
+  - "200bb deep: Your 6♠5♠ has great implied odds"
+  - "Deep stacked, you can barrel turn and river as bluff"
+
+**Training Scenarios**:
+- Same hand, different stack depths
+- "You have AK, flop A73 rainbow. How do you play with 20bb vs. 100bb vs. 300bb?"
+
+### 12. Live Tell Recognition & Timing Tells (Online Focus)
+Teach online-specific behavioral patterns and timing analysis.
+
+**Online Timing Tells**:
+- **Instant Actions**:
+  - Instant call pre-flop usually indicates: Medium pocket pair, suited connector
+  - Instant check often means: Missed completely, giving up
+  - Instant river call: Likely bluff-catcher, not premium hand
+- **Delayed Actions**:
+  - Long tank then raise: Usually genuine strength (value)
+  - Long tank then call: Marginal hand, tough decision
+  - Long tank then fold: Borderline fold, had some equity
+- **Pre-Select Buttons**:
+  - Auto-check detected: Player multi-tabling, gave up on hand
+  - Auto-call detected: Passive player, likely drawing
+
+**Bet Sizing Tells**:
+- **Weak Bet Sizing Tells**:
+  - Odd bet sizes (23bb into 40bb pot): Often indicates uncertainty, marginal hand
+  - Min-bets: Usually weak made hand or blocking bet
+- **Strong Bet Sizing Tells**:
+  - Pot overbet (1.5x-2x pot): Polarized - nuts or air
+  - Perfectly sized pot bet (exactly pot): Experienced player, balanced range
+
+**Training Exercises**:
+- Watch hand replays with timing data
+- "Opponent tanked 45 seconds then min-raised - what does this mean?"
+- Build database of timing patterns per opponent type
+
+**Note**: Emphasize tells are not 100% reliable, just additional data points
+
+### 13. Community & Social Features
+Foster learning community and competitive environment.
+
+**Hand Sharing Platform**:
+- **Upload Interesting Hands**:
+  - Export hand history with annotations
+  - Ask community: "How would you play this?"
+  - Voting system for best analysis
+- **Hand of the Week**: Featured instructional hands
+- **Debate Section**: Controversial plays discussed
+
+**Strategy Forums**:
+- Beginner Questions section
+- Advanced Strategy discussion
+- Hand History Review subforum
+- Bankroll Management support group
+
+**Coach Review Service**:
+- Submit hands for professional review (premium feature)
+- Certified coaches provide video analysis
+- Personalized leak detection
+- Study plan recommendations
+
+**Leaderboards**:
+- **Overall Win Rate** (bb/100, minimum 1000 hands)
+- **Fastest Learner**: Most improvement over 30 days
+- **Equity Quiz Champion**: Highest accuracy score
+- **Tilt Resistance**: Best emotional discipline score
+- **Multi-Table Master**: Highest quality play across 4+ tables
+
+**Filter Options**:
+- By skill level (beginner/intermediate/advanced)
+- By game type (cash/tournament/SNG)
+- By region/language
+- Friends-only leaderboards
+
+### 14. Customizable Training Plans & Daily Missions
+Structured curriculum with gamification elements.
+
+**Pre-Built Training Tracks**:
+
+**1. "Zero to Hero" (30-Day Beginner Plan)**:
+- Days 1-5: Starting hands and position
+- Days 6-10: Pot odds and equity fundamentals
+- Days 11-15: Post-flop c-betting and board reading
+- Days 16-20: 3-betting and advanced aggression
+- Days 21-25: ICM and tournament basics
+- Days 26-30: Multi-tabling and volume building
+
+**2. "Aggression Mastery" (14-Day Intensive)**:
+- Focus: Increase controlled aggression
+- Target: Raise PFR from 12% to 20%
+- Exercises: 3-bet bluffing drills, c-bet optimization
+- Goal: Transform from passive to aggressive player
+
+**3. "Positional Domination" (21-Day Course)**:
+- Week 1: Button play exploitation
+- Week 2: Blind defense strategies
+- Week 3: Early position discipline
+- Outcome: +3bb/100 improvement from positional awareness
+
+**Daily Missions**:
+- "Win a pot with a bluff from the cutoff" (+50 XP)
+- "Correctly fold top pair when behind" (+75 XP)
+- "Play 100 hands with <15% VPIP" (+100 XP)
+- "Execute successful check-raise" (+60 XP)
+- "Identify opponent player type within 20 hands" (+40 XP)
+
+**Progress Tracking**:
+- XP system with level-ups (Level 1-50)
+- Skill tree unlocks (new training modules)
+- Visual badge collection
+- Completion certificates
+
+### 15. Voice Coaching & Audio Commentary
+Immersive audio guidance for hands-free learning.
+
+**Real-Time Voice Assistant**:
+- Natural language coaching during hands
+- "You're on the button with pocket jacks. The action folds to you - this is a clear raising situation to steal the blinds and build the pot."
+- Adjustable verbosity (minimal hints vs. detailed explanations)
+- Multiple voice personas (professional commentator, friendly coach, GTO robot)
+
+**WSOP-Style Commentary Mode**:
+- Dramatic narration of hands
+- "He's staring down at pocket kings and there's a raise in front of him. What will he do here?"
+- Post-flop analysis: "And the flop brings an ace - this could spell trouble for those cowboys"
+- Adds entertainment value to practice sessions
+
+**Situational Audio Cues**:
+- "You're pot-committed" (alert when 1/3+ stack invested)
+- "Profitable call based on pot odds"
+- "Warning: Playing outside your bankroll limits"
+- "Tilt detected - consider a break"
+
+**Accessibility Features**:
+- Full audio navigation for visually impaired
+- Screen reader compatibility
+- Verbal hand strength descriptions
+- Audio-based quiz mode
+
+**Settings**:
+- Volume mixing (voice vs. sound effects)
+- Enable/disable mid-hand (test yourself in silence)
+- Language selection
+- Speech speed adjustment
+
+### 16. Interactive Range Builder Workshop
+Visual range construction tool for pre-flop mastery.
+
+**Range Matrix Interface**:
+- 169-square grid (all possible starting hands)
+- Color-coding system:
+  - Dark green: Always play (AA, KK, QQ, AK)
+  - Light green: Play from late position
+  - Yellow: Marginal/suited connectors
+  - Red: Never play (72o, 83o, etc.)
+
+**Functionality**:
+- **Drag-and-Drop Construction**:
+  - Paint hands into "UTG Open Range"
+  - Build "Button 3-bet vs. MP" range
+  - Create "BB defense vs. CO steal" range
+- **Percentage Calculator**:
+  - "Your UTG range is 12.5% of hands - appropriate"
+  - "Your button opening range is 45% - standard for 6-max"
+- **Save/Load Presets**:
+  - Save custom ranges by position
+  - Import GTO baseline ranges
+  - Export for study
+
+**Range Comparison**:
+- **Your Range vs. GTO**:
+  - Overlay visualization showing gaps
+  - "You're missing suited aces in CO open - consider adding"
+  - "You're opening 72o from MP - too loose"
+- **Equity Calculations**:
+  - "Your UTG range has 58% equity vs. BB defend range"
+  - EV calculations per position matchup
+
+**Training Mode**:
+- Quiz: "Build an optimal UTG open range"
+- Submit for automated grading
+- Feedback: "Good start! Consider adding suited connectors 98s+ for balance"
+
+**Integration**:
+- Built ranges automatically apply to practice tables
+- Experiment with range adjustments and track results
+- A/B testing: "Tight vs. loose BTN range - which wins more?"
+
+### 17. Exploitative Play Training Academy
+Learn to identify and exploit opponent tendencies.
+
+**Player Archetype Database**:
+
+**1. The Nit (Tight-Passive)**:
+- **Stats**: VPIP 8-12%, PFR 6-8%, Fold to 3-bet 80%+
+- **Exploits**:
+  - Steal blinds relentlessly (90%+ success rate)
+  - Fold to their rare 3-bets (always strong)
+  - Never bluff when they show interest
+  - Value bet thin when you have it
+- **Practice Scenario**: "Table full of nits - maximize steal profit"
+
+**2. Calling Station (Loose-Passive)**:
+- **Stats**: VPIP 40-60%, PFR 5-10%, Fold to c-bet 20%
+- **Exploits**:
+  - Never bluff (they don't fold)
+  - Value bet relentlessly with marginal hands
+  - No fancy plays needed
+  - Let them pay you off
+- **Practice Scenario**: "Extract maximum value from calling station"
+
+**3. LAG (Loose-Aggressive)**:
+- **Stats**: VPIP 30-45%, PFR 25-35%, 3-bet 12%+
+- **Exploits**:
+  - Trap with premium hands (they'll barrel off)
+  - Call down lighter (they bluff often)
+  - 4-bet/shove with strong hands for value
+  - Avoid bluffing (they won't fold to single bet)
+- **Practice Scenario**: "Play against maniac - let them bluff off"
+
+**4. TAG (Tight-Aggressive)**:
+- **Stats**: VPIP 18-24%, PFR 16-20%, balanced 3-bet
+- **Exploits**:
+  - Minimal - these are good players
+  - Look for positional imbalances
+  - Exploit if they over-fold to 4-bets
+  - Table select away from them when possible
+- **Practice Scenario**: "Grind small edges vs. competent opponent"
+
+**Adaptive AI**:
+- Bots change archetypes mid-session
+- "Player X just went on tilt after bad beat - now playing like maniac"
+- Real-time adjustment recommendations
+- Track your exploitation success rate
+
+**Counter-Exploitation**:
+- "You're being exploited! Opponent is stealing your blinds 75% of the time - defend wider"
+- Balance detection: "Your c-bet is 85% - opponents will start check-raising light"
+
+### 18. Multi-Format Poker Training
+Expand beyond NLHE to other popular variants.
+
+**Additional Variants** (Post-MVP):
+
+**1. Pot-Limit Omaha (PLO)**:
+- 4-card starting hands (complexity increase)
+- Nut-oriented strategy
+- Hand reading adjustments
+- Equity run closer (more variance)
+- Starting with PLO4, expandable to PLO5
+
+**2. Short Deck Hold'em (6+ Hold'em)**:
+- Remove 2-5 cards from deck
+- Altered hand rankings (flush > full house)
+- Increased action (more equity realization)
+- Popular in high-stakes Asian games
+
+**3. Heads-Up Specialist Training**:
+- Hyper-aggressive optimal strategy
+- Wide range battles
+- Nash equilibrium push/fold
+- Psychological warfare
+- Fastest format to improve fundamental skills
+
+**4. Mixed Games Introduction**:
+- H.O.R.S.E. rotation basics
+- 8-Game overview
+- Dealer's choice concepts
+- Well-rounded poker education
+
+**Learning Path**:
+- Master NLHE first (foundation)
+- Branch to PLO (equity calculation practice)
+- Try Short Deck (action and fun)
+- Heads-up (skill development accelerator)
+
+**Cross-Training Benefits**:
+- NLHE skills transfer to other variants
+- Improved hand reading from PLO
+- Aggression lessons from Heads-Up
+- Become complete poker player
+
+---
+
+## Enhanced Development Phases (Revised)
+
+### Phase 1 (MVP - Core Foundation)
+**Goal**: Functional poker trainer with essential learning features
+**Timeline**: 3-4 months
+
+- Core Texas Hold'em engine (accurate hand evaluation, pot calculations)
+- Single-player vs. 5 AI opponents (basic difficulty levels)
 - Basic hint system (hand strength + position advice)
-- Starting hand recommendations
-- Post-hand review
+- Starting hand recommendations by position
+- Simple post-hand review
+- Pot odds calculator display
+- Basic bankroll tracking
+- Session statistics (hands played, win/loss)
 
-### Phase 2 (Enhanced Learning)
-- Pot odds calculator and equity display
-- Board texture analysis
-- Mistake detection and feedback
-- Comprehensive glossary with tooltips
-- Practice scenario trainer
+**Success Criteria**: Beginners can play 100 hands with guidance and understand basic strategy
 
-### Phase 3 (Advanced Features)
-- Range visualization
-- HUD-style statistics
-- Adaptive AI opponents
-- Achievement/progression system
-- Hand history database
+---
 
-### Phase 4 (Social/Competitive)
-- Multiplayer support
-- Leaderboards
-- Tournament mode
-- Advanced GTO training modules
-- Mobile applications
+### Phase 2 (Enhanced Learning & Psychology)
+**Goal**: Professional-grade training tools and mental game features
+**Timeline**: 3-4 months
+
+**Analytics & Insights**:
+- Comprehensive session analytics dashboard (VPIP, PFR, positional stats)
+- Board texture analysis and real-time coaching
+- Leak detection system with actionable feedback
+- Advanced HUD-style statistics
+- Win rate tracking (bb/100 hands, showdown/non-showdown)
+
+**Mental Game**:
+- Tilt detection and intervention system
+- Mental reset tools (breathing exercises, perspective reminders)
+- Variance simulator to build psychological resilience
+- Emotional discipline tracking
+
+**Education**:
+- Comprehensive glossary with interactive tooltips
+- Practice scenario trainer (situational drills)
+- Mistake detection with gentle corrections
+- Hand reading training module (range narrowing exercises)
+
+**Success Criteria**: Players demonstrate 30% improvement in decision quality over 20 sessions
+
+---
+
+### Phase 3 (Advanced Skills & Competition)
+**Goal**: Tournament play, advanced concepts, and competitive features
+**Timeline**: 4-5 months
+
+**Tournament Features**:
+- Full tournament mode (SNG, MTT formats)
+- ICM training with bubble play scenarios
+- Push/fold charts for short stacks
+- Final table dynamics coaching
+
+**Advanced Training**:
+- Equity calculation trainer (timed quizzes)
+- Stack depth strategy modules (short/medium/deep)
+- Multi-table training (2-6 tables simultaneously)
+- Range builder workshop (visual range construction tool)
+- Exploitative play academy (player archetype training)
+
+**AI & Opponents**:
+- Adaptive AI with player archetypes (Nit, LAG, TAG, Calling Station)
+- AI that changes behavior mid-session (tilt simulation)
+- Player note-taking system with AI-assisted suggestions
+- Timing tell recognition training
+
+**Gamification**:
+- Achievement/progression system with XP
+- Customizable training plans ("Zero to Hero", "Aggression Mastery")
+- Daily missions and challenges
+- Skill tree unlocks
+
+**Success Criteria**: Players successfully navigate tournament bubble situations 70%+ of time
+
+---
+
+### Phase 4 (Community & Professional Tools)
+**Goal**: Social features, professional content, and advanced variants
+**Timeline**: 3-4 months
+
+**Community Features**:
+- Hand sharing platform with voting system
+- Strategy forums and discussion boards
+- Leaderboards (win rate, improvement, quiz champions)
+- Friends-only competition modes
+- Hand of the Week featured content
+
+**Professional Content**:
+- Hand history review theater (50+ annotated pro hands)
+- Interactive analysis of legendary hands (Phil Ivey, Moneymaker, etc.)
+- Pause & predict learning mode
+- GTO solver comparisons
+- Coach review service integration (premium)
+
+**Advanced Features**:
+- Voice coaching and audio commentary (WSOP-style narration)
+- Range visualization overlay (opponent hand distributions)
+- Professional hand history database with search
+- Custom bot personality creation
+
+**Success Criteria**: 10,000+ active users, 500+ hands shared daily
+
+---
+
+### Phase 5 (Expansion & Multiplayer)
+**Goal**: Real multiplayer, mobile apps, and game variants
+**Timeline**: 4-6 months
+
+**Multiplayer**:
+- Real-time multiplayer cash games
+- Private table creation with friends
+- Tournament lobbies with scheduled events
+- Spectator mode with coaching permissions
+- Chat with poker etiquette filters
+
+**Platform Expansion**:
+- Native mobile apps (iOS/Android)
+- Cross-platform synchronization
+- Offline mode with AI opponents
+- Tablet-optimized interfaces
+
+**Game Variants**:
+- Pot-Limit Omaha (PLO4, PLO5)
+- Short Deck Hold'em (6+ poker)
+- Heads-Up specialist mode
+- Mixed games introduction (H.O.R.S.E., 8-Game)
+
+**Advanced Tools**:
+- GTO training modules with solver integration
+- Advanced range analysis tools
+- Session replay with VR/AR support (experimental)
+- Coaching marketplace
+
+**Success Criteria**: 50,000+ users, 4.5+ star ratings, profitable freemium model
+
+---
+
+## Monetization Strategy
+
+### Free Tier
+- Unlimited play vs. AI opponents
+- Basic hint system and position coaching
+- Post-hand review (last 10 hands)
+- Community forums access
+- Daily missions (limited)
+
+### Premium Tier ($9.99/month or $79.99/year)
+- Advanced analytics dashboard
+- Tilt detection and mental game tools
+- Full hand history database (unlimited storage)
+- Professional hand review theater (all content)
+- Equity trainer and quiz modes
+- Tournament mode access
+- Multi-table training
+- Range builder tool
+- Priority customer support
+- Ad-free experience
+
+### Pro Tier ($24.99/month or $199/year)
+- All Premium features
+- Coach review service credits (2 hands/month)
+- GTO solver integration
+- Custom bot creation
+- Advanced range analysis tools
+- Exclusive pro content and webinars
+- Tournament lobby access
+- Private tables with friends
+- API access for hand import/export
 
 ## Professional Terminology Standards
 
